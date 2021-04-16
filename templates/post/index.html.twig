@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostController!{% endblock %}
+
+{% block body %}
+<ul>
+    {% for post in mesPosts %}
+        <li><a href="/post/{{ post.id }}">{{ post.title }}</a></li>
+        {% if '/post/' in app.request.uri %}
+            <li>{{ mesPosts[0].body }}</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+{% if '/post/1' in app.request.uri %}
+    <li>{{ mesPosts[0].body }}</li>
+{% endif %}
+{% if '/post/2' in app.request.uri %}
+    <li>{{ mesPosts[1].body }}</li>
+{% endif %}
+{% if '/post/3' in app.request.uri %}
+    <li>{{ mesPosts[2].body }}</li>
+{% endif %}
+{% if '/post/4' in app.request.uri %}
+    <li>{{ mesPosts[3 ].body }}</li>
+{% endif %}
+{% endblock %}
